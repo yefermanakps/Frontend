@@ -1,5 +1,5 @@
 // 🔴 REEMPLAZA ESTA URL CON LA DE TU BACKEND EN RENDER
-const backendURL = 'https://frontend-p9am.onrender.com'; // <--- CAMBIA ESTO
+const backendURL = 'https://deportesakps-1.onrender.com'; // <--- CAMBIA ESTO
 
 document.getElementById('predecirBtn').addEventListener('click', async () => {
     const local = document.getElementById('local').value.trim();
