@@ -48,6 +48,48 @@
         </div>
     </div>
 
-    <script src="script.js."></script>
+    <script>
+// 🔴 REEMPLAZA ESTA URL CON LA DE TU BACKEND EN RENDER
+const backendURL = 'https://deportesakps-1.onrender.com';
+
+document.getElementById('predecirBtn').addEventListener('click', async () => {
+    const local = document.getElementById('local').value.trim();
+    const visitante = document.getElementById('visitante').value.trim();
+
+    if (!local || !visitante) {
+        alert('Por favor ingresa ambos equipos');
+        return;
+    }
+
+    const btn = document.getElementById('predecirBtn');
+    btn.textContent = 'Analizando...';
+    btn.disabled = true;
+
+    try {
+        const response = await fetch(backendURL + '/predecir', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ local, visitante })
+        });
+
+        if (!response.ok) throw new Error('Error en el servidor');
+
+        const data = await response.json();
+
+        document.getElementById('ganador').textContent = data.ganador;
+        document.getElementById('altabaja').textContent = `${data.alta_baja.etiqueta} (${data.alta_baja.valor})`;
+        document.getElementById('momento-local').textContent = data.momento_equipos[local] || 'N/A';
+        document.getElementById('momento-visitante').textContent = data.momento_equipos[visitante] || 'N/A';
+        document.getElementById('favoritismo').textContent = `Local ${data.favoritismo.local}% / Visitante ${data.favoritismo.visitante}% / Empate ${data.favoritismo.empate}%`;
+        document.getElementById('runline').textContent = data.runline;
+        document.getElementById('resultados').style.display = 'block';
+    } catch (error) {
+        alert('Error: ' + error.message);
+    } finally {
+        btn.textContent = '🔥 PRONOSTICAR';
+        btn.disabled = false;
+    }
+});
+    </script>
 </body>
 </html>
