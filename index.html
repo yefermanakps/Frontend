@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEPORTES AKPS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">⚽ DEPORTES <span>AKPS</span></h1>
+        <p class="subtitulo">Pronosticador inteligente en tiempo real</p>
+
+        <div class="input-group">
+            <input type="text" id="local" placeholder="Equipo local (ej. Real Madrid)">
+            <input type="text" id="visitante" placeholder="Equipo visitante (ej. Barcelona)">
+            <button id="predecirBtn">🔥 PRONOSTICAR</button>
+        </div>
+
+        <div id="resultados" class="resultados" style="display: none;">
+            <h2>Resultados del análisis</h2>
+            <div class="grid">
+                <div class="card" id="ganador-card">
+                    <h3>🏆 Ganador</h3>
+                    <p id="ganador">-</p>
+                </div>
+                <div class="card" id="altabaja-card">
+                    <h3>📈 Alta/Baja</h3>
+                    <p id="altabaja">-</p>
+                </div>
+                <div class="card" id="momento-local-card">
+                    <h3>⚡ Momento Local</h3>
+                    <p id="momento-local">-</p>
+                </div>
+                <div class="card" id="momento-visitante-card">
+                    <h3>⚡ Momento Visitante</h3>
+                    <p id="momento-visitante">-</p>
+                </div>
+                <div class="card" id="favoritismo-card">
+                    <h3>📊 Favoritismo</h3>
+                    <p id="favoritismo">-</p>
+                </div>
+                <div class="card" id="runline-card">
+                    <h3>🎲 Runline</h3>
+                    <p id="runline">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
